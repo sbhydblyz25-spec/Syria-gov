@@ -1,19 +1,17 @@
-name: Build Syria Gov APK
+name: Build APK
 on: [push]
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4 # تحديث لـ v4
+      - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2
         with:
+          flutter-version: '3.22.0'
           channel: 'stable'
-          flutter-version: '3.22.0' # تحديد نسخة مستقرة
       - run: flutter pub get
       - run: flutter build apk --release
-      - name: Upload APK
-        uses: actions/upload-artifact@v4 # التحديث المهم لـ v4
+      - uses: actions/upload-artifact@v4
         with:
           name: syria-gov-app
           path: build/app/outputs/flutter-apk/app-release.apk
