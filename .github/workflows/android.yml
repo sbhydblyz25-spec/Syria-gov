@@ -16,3 +16,4 @@ jobs:
         with:
           name: syria-gov-app
           path: build/app/outputs/flutter-apk/app-release.apk
+          
